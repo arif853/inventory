@@ -33,7 +33,7 @@
 		        <th>Price</th>
 		        <th>Stock</th>
 		        <th>Added Date</th>
-		        <th>Status</th>
+		        <th>Delete</th>
 		        <th>Action</th>
 		      </tr>
 		    </thead>
@@ -64,7 +64,7 @@
 		        <td><?php echo $row["product_price"]; ?></td>
 				<td><?php echo $row["product_stock"]; ?></td>
 				<td><?php echo $row["added_date"]; ?></td>
-		        <td><a href="#" class="btn btn-success btn-sm">Active</a></td>
+		        <td><a href="./templates/delete-process.php?pid=<?php echo $row["pid"]; ?>" class="btn btn-danger btn-sm">Delete</a></td>
 		        <td>
 		        	<a href="./templates/update_products.php?pid=<?php echo $row["pid"]; ?>" class="btn btn-info btn-sm">Update</a>
 		        </td>

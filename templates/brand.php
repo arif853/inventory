@@ -8,10 +8,10 @@
         $query = "INSERT INTO brands (brand_name) VALUES ('$brandname')";
         $result = mysqli_query($conn, $query);
         if ($result === TRUE) {
-          $wrng_pass = "Brand Added.";
+          $wrng_pass = "<script> alert('Brand Added.')</script>";
         } 
         else {
-          $wrng_pass = "Brand Name exsist.";
+          $wrng_pass = "<script> alert('Brand Name exsist.')</script>";
         }
       } 
   }

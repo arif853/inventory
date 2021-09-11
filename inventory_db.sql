@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 19, 2021 at 05:45 AM
+-- Generation Time: Aug 29, 2021 at 07:57 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.3.29
 
@@ -62,7 +62,9 @@ CREATE TABLE `categories` (
 INSERT INTO `categories` (`cid`, `category_name`, `status`) VALUES
 (11, 'Electronics', '1'),
 (13, 'Cloth', '1'),
-(87, 'Furniture', '1');
+(87, 'Furniture', '1'),
+(91, 'Mobile', '1'),
+(95, 'Books', '1');
 
 -- --------------------------------------------------------
 
@@ -101,7 +103,16 @@ INSERT INTO `invoice` (`invoice_no`, `customer_name`, `order_date`, `sub_total`)
 (62, 'Kuddus', '0000-00-00', 42000),
 (63, 'Arif', '0000-00-00', 2400),
 (64, 'New Store', '0000-00-00', 40000),
-(65, 'Arif', '0000-00-00', 60000);
+(65, 'Arif', '0000-00-00', 60000),
+(66, 'Arif', '0000-00-00', 12000),
+(67, 'arif', '0000-00-00', 24000),
+(68, 'New Store', '0000-00-00', 23000),
+(69, 'wicon ', '0000-00-00', 20000),
+(70, 'arif11', '0000-00-00', 0),
+(71, 'Wicon', '0000-00-00', 11000),
+(72, 'Harry', '0000-00-00', 11000),
+(73, 'Likhon', '0000-00-00', 11000),
+(74, 'new customer', '0000-00-00', 76000);
 
 -- --------------------------------------------------------
 
@@ -149,7 +160,18 @@ INSERT INTO `invoice_details` (`id`, `invoice_no`, `product_name`, `price`, `qty
 (64, 62, 'Samsung M11', 10500, 4),
 (65, 63, 'Fan', 1200, 2),
 (66, 64, 'Rounded Dining Table ', 20000, 2),
-(67, 65, 'Galaxy M11', 10000, 6);
+(67, 65, 'Galaxy M11', 10000, 6),
+(68, 66, 'Fan', 1200, 10),
+(69, 67, 'Fan', 1200, 20),
+(70, 68, 'T-shirt', 1200, 10),
+(71, 68, 'Pants', 2200, 5),
+(72, 69, 'Rounded Dining Table ', 20000, 1),
+(73, 71, 'Pants', 2200, 5),
+(74, 72, 'Pants', 2200, 5),
+(75, 73, 'Pants', 2200, 5),
+(76, 74, 'Rounded Dining Table ', 20000, 1),
+(77, 74, 'T-shirt', 1200, 5),
+(78, 74, 'Galaxy M11', 10000, 5);
 
 -- --------------------------------------------------------
 
@@ -173,13 +195,14 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`pid`, `cid`, `bid`, `product_name`, `product_price`, `product_stock`, `added_date`, `p_status`) VALUES
-(54, 11, 23, 'Fan', 1200, 100, '2021-08-18', '1'),
-(55, 13, 21, 'T-shirt', 1200, 60, '2021-08-04', '1'),
+(54, 11, 23, 'Fan', 1200, 1000, '2021-08-27', '1'),
+(55, 13, 21, 'T-shirt', 1200, 500, '2021-08-27', '1'),
 (57, 11, 36, 'Samsung M11', 10500, 70, '2021-08-04', '1'),
-(58, 11, 23, '32\" Led TV', 15000, 5, '2021-08-04', '1'),
-(59, 11, 36, 'Galaxy M11', 10000, 0, '2021-08-05', '1'),
-(60, 13, 21, 'Pants', 2200, 25, '2021-08-07', '1'),
-(63, 87, 49, 'Rounded Dining Table ', 20000, 8, '2021-08-18', '1');
+(58, 11, 23, '32', 15000, 2000, '2021-08-27', '1'),
+(59, 11, 36, 'Galaxy M11', 10000, 45, '2021-08-19', '1'),
+(60, 13, 21, 'Pants', 2200, 1000, '2021-08-27', '1'),
+(63, 87, 49, 'Rounded Dining Table ', 20000, 6, '2021-08-19', '1'),
+(66, 11, 36, 'Fan1', 1200, 1, '2021-08-29', '1');
 
 -- --------------------------------------------------------
 
@@ -188,15 +211,19 @@ INSERT INTO `products` (`pid`, `cid`, `bid`, `product_name`, `product_price`, `p
 --
 
 CREATE TABLE `userimg` (
-  `img` varchar(400) NOT NULL
+  `img` varchar(400) NOT NULL,
+  `user` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `userimg`
 --
 
-INSERT INTO `userimg` (`img`) VALUES
-('image/halcyon-1352522_1920.jpg');
+INSERT INTO `userimg` (`img`, `user`) VALUES
+('image/41jLBhDISxL.jpg', 'ADMIN'),
+('image/halcyon-1352522_1920.jpg', 'ADMIN'),
+('image/adm.jpg', 'likhon'),
+('image/user-icon.png', 'User');
 
 -- --------------------------------------------------------
 
@@ -219,12 +246,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`username`, `fullname`, `email`, `password`, `confirm_password`, `operator`, `added_date`) VALUES
-('ADMIN', 'Administrator', 'admin@gmail.com', '$2y$10$itgf1G7Hzg7iDZC2QVmcP.2Z1cJYYmSV2KN/wXLIan/Fvu79C1lzW', '$2y$10$/QpTdGf8zTmZbw9KVokxmubJzI8l3VzTGey4U2OPMvZU785u5sj9e', 'Admin', '2021-08-19 03:20:57'),
-('arif', 'Arif', 'arif@gamil.com', '$2y$10$DFia2u5NKFW6nxnOlZf5S.V59w4JZSM9w5q1nrFA6Uj/0MFXgdaS6', '$2y$10$FA1vcZralGgewYvVwhurO.8dtav0yjjNWBtFS8e/o60pU2xfieMIe', 'Manager', '2021-08-19 03:20:01'),
-('likhon', 'Shohana Arif', 'shohana@gmail.com', '$2y$10$wFsAJ.ACxvEWmZqVCLqtSec6j6e.18v90WkNvduzobr05pUhiDbei', '$2y$10$mxufCrOyE3ZJR4ReHlUidOEZzLSAXIXJ6nNHnYLWI9p2Vq9LvqnXe', 'Admin', '2021-08-14 05:29:00'),
-('Mamun', 'Mamun Hossain', 'mamun@gmail.com', '$2y$10$P7Ni9BytG.02zMqpWCsck.LDxvvB479E.y5IIEoRSwdTapHmGIy8q', '$2y$10$o5TP/X2NDefbykYd7iIoeuoqnhnNgZeDUUw4HZER6BZpIUcMWSBy.', 'Manager', '2021-08-07 18:21:16'),
+('ADMIN', 'Supervisors', 'admin@gmail.com', '$2y$10$PXb9elniDBonf/Kfa4Z.K.cmaRcLVLwKPWbt0FBmXBoQKF0XKjOeq', '$2y$10$6FWPefFnaYZMXW26zO5q9.T1/otz/XqMT6PDk3eTzzo.lG8jhx7K2', 'Admin', '2021-08-29 17:25:26'),
+('likhon', 'Shohana Arif', 'shohana@gmail.com', '$2y$10$wFsAJ.ACxvEWmZqVCLqtSec6j6e.18v90WkNvduzobr05pUhiDbei', '$2y$10$mxufCrOyE3ZJR4ReHlUidOEZzLSAXIXJ6nNHnYLWI9p2Vq9LvqnXe', 'Admin', '2021-08-25 18:21:18'),
+('Mamun', 'Mamun ', 'mamun12@gmail.com', '$2y$10$PCkuu2aJvANWWJSlhTbNieIQMmkuhxB8hvchVmsrjotG1uRCv4Tsm', '$2y$10$XSpZyLjmQGwKqKAD9XmurOstsjheF0A6hef0J6r8MiPwaJK/ivRZC', 'Manager', '2021-08-26 07:22:33'),
 ('saifur', 'sairur rahman', 'saifur@gmail.com', '$2y$10$mnI.8GTc9OegFy8HJY2D5uRpFVBq5dgceyT1t.58MIGIc4H8S9s4y', '$2y$10$mLeHa3Rxpmpvc19jC7qg8eGmUPMblKgdpZBGr.dZBEdw6NJhJmyeS', 'User', '2021-08-19 03:20:52'),
-('User', 'User', 'user@mail.com', '$2y$10$8/oKsOwJAhzsBMGbuBVEQuaE02vQ1qHqb6JmOBreiHD0Vopzy8HSe', '$2y$10$PkV6IVil/k9rTIlhLwrQ9.x8EWofIaj7wXrz.fnB3j2JpVnyllhTy', 'User', '2021-08-19 03:18:26');
+('User', 'Mr manik', 'manik@mail.com', '$2y$10$7UZY68dsWqttIQaJvpcEuO5KmF9sAF1RVM0zgtoklJPOmyMhbM0YW', '$2y$10$OqwKC781MnTnQTQnq7jCi.2hFo2Jkmml11D1qRiShKF6kyNh7oh3a', 'User', '2021-08-26 11:25:00');
 
 --
 -- Indexes for dumped tables
@@ -270,7 +296,8 @@ ALTER TABLE `products`
 -- Indexes for table `userimg`
 --
 ALTER TABLE `userimg`
-  ADD PRIMARY KEY (`img`);
+  ADD PRIMARY KEY (`img`),
+  ADD KEY `user` (`user`);
 
 --
 -- Indexes for table `users`
@@ -286,31 +313,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
-  MODIFY `bid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `bid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=91;
+  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- AUTO_INCREMENT for table `invoice`
 --
 ALTER TABLE `invoice`
-  MODIFY `invoice_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `invoice_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT for table `invoice_details`
 --
 ALTER TABLE `invoice_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- Constraints for dumped tables
@@ -328,6 +355,12 @@ ALTER TABLE `invoice_details`
 ALTER TABLE `products`
   ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`cid`) REFERENCES `categories` (`cid`),
   ADD CONSTRAINT `products_ibfk_2` FOREIGN KEY (`bid`) REFERENCES `brands` (`bid`);
+
+--
+-- Constraints for table `userimg`
+--
+ALTER TABLE `userimg`
+  ADD CONSTRAINT `userimg_ibfk_1` FOREIGN KEY (`user`) REFERENCES `users` (`username`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

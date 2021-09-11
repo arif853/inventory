@@ -8,10 +8,10 @@
       $result2 = mysqli_query($conn,$query2);
 
       if ($result2 === TRUE) {
-        $wrng_pass = "Category Added.";
+        $wrng_pass = "<script> alert('Category Added.')</script>";
       } 
       else {
-        $wrng_pass = "Category Name exsist.";
+        $wrng_pass = "<script> alert('Category Name exsist.')</script>";
       }
     }
   }
