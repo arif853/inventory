@@ -125,6 +125,7 @@
 		        <th>#SI</th>
 		        <th>Customer Name</th>
 		        <th>Total</th>
+		        <th>Date</th>
 		      </tr>
 		    </thead>
 		    <tbody id="get_product">
@@ -137,6 +138,7 @@
 		        <td><?php echo $i;?> </td>
 				<td><?php echo $row['customer_name'];?></td>
 				<td><?php echo $row['sub_total'];?></td>
+				<td><?php echo $row['order_date'];?></td>
 		      </tr>
 			  <?php
 						$i++;
