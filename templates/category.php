@@ -33,7 +33,7 @@
  	<link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-warning">
   <a class="navbar-brand" href="#">Inventory System</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -71,7 +71,7 @@
                 <input type="text" class="form-control" name="categoryname" id="categoryname" placeholder="Enter Category Name">
               
               </div>
-              <input type="submit" class="btn btn-primary" value="Add">
+              <input type="submit" class="btn btn-success" value="Add">
             </form>
           </div>
         </div>

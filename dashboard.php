@@ -61,7 +61,7 @@
 							echo $login_time;
 						?>
 					</p>
-				    <a href="editprofile.php" class="btn btn-primary" ><i class="fa fa-edit">&nbsp;</i>Edit Profile</a>
+				    <a href="editprofile.php" class="btn btn-warning" ><i class="fa fa-edit">&nbsp;</i>Edit Profile</a>
 					
 				  </div>
 				</div>
@@ -82,7 +82,7 @@
 						      <div class="card-body">
 						        <h4 class="card-title">New Orders</h4>
 						        <p class="card-text">Here you can make invoices and create new orders</p>
-						        <a href="new_order.php" class="btn btn-primary">New Orders</a>
+						        <a href="new_order.php" class="btn btn-warning">New Orders</a>
 								
 						      </div>
 						    </div>
@@ -95,11 +95,23 @@
 	<p></p>
 	<p></p>
 	<div class="container">
-		<?php 
-			if($operator == 'Admin'){
-				include_once("./templates/usercreate.php");
-			}
-		?>
+		<div class="row">
+			<div class="col-md-6">
+				<?php 
+					if($operator == 'Admin'){
+						include_once("./templates/usercreate.php");
+					}
+				?>
+			</div>
+			<div class="col-md-6">
+				<?php 
+					if($operator == 'Admin'){
+						include_once("./templates/ledger.php");
+					}
+				?>
+			</div>
+		</div>
+		
 		<p></p>
 		<div class="row">
 			<div class="col-md-3">
@@ -107,8 +119,8 @@
 						<div class="card-body">
 						<h4 class="card-title">Categories</h4>
 						<p class="card-text">Here you can manage your categories and you add new parent and sub categories</p>
-						<a href="./templates/category.php" class="btn btn-primary">Add</a>
-						<a href="manage_categories.php" class="btn btn-primary">Manage</a>
+						<a href="./templates/category.php" class="btn btn-warning">Add</a>
+						<a href="manage_categories.php" class="btn btn-warning">Manage</a>
 					</div>
 				</div>
 			</div>
@@ -117,8 +129,8 @@
 						<div class="card-body">
 						<h4 class="card-title">Brands</h4>
 						<p class="card-text">Here you can manage your brand and you add new brand</p>
-						<a href="./templates/brand.php" class="btn btn-primary">Add</a>
-						<a href="manage_brand.php" class="btn btn-primary">Manage</a>
+						<a href="./templates/brand.php" class="btn btn-warning">Add</a>
+						<a href="manage_brand.php" class="btn btn-warning">Manage</a>
 					</div>
 				</div>
 			</div>
@@ -127,8 +139,8 @@
 						<div class="card-body">
 						<h4 class="card-title">Products</h4>
 						<p class="card-text">Here you can manage your products and you add new products</p>
-						<a href="./templates/products.php" class="btn btn-primary">Add</a>
-						<a href="manage_product.php" class="btn btn-primary">Manage</a>
+						<a href="./templates/products.php" class="btn btn-warning">Add</a>
+						<a href="manage_product.php" class="btn btn-warning">Manage</a>
 					</div>
 				</div>
 			</div>
