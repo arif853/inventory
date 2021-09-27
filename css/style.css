@@ -154,3 +154,31 @@ iframe #fc:hover #hov {
   display: block;
   cursor: pointer;
 }
+/*-------------- Customer Page Css start---------------- */
+
+
+.customer-reg {
+    margin-top: 40px;
+}
+.customer-reg .input_box {
+	margin-bottom: 15px;
+	float: left;
+	margin-right: 130px;
+	text-align: center;
+}
+.customer-reg .input_box.b-width{
+    width: 650px;
+}
+.customer-reg .input_box.b-width input{
+    width: 790px;
+}
+.customer-reg .input_box input {
+	width: 330px;
+	height: 50px;
+	padding: 10px;
+	border: 1px solid #000;
+}
+.customer-reg .input_box.add-btn {
+	margin-left: 220px;
+	margin-top: 50px;
+}

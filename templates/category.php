@@ -78,6 +78,38 @@
     </div>
     <div class="col-lg-3"></div>
   </div>
+  <br><br><br>
+  <div class="row">
+  <div class="col-lg-3"></div>
+    <div class="col-lg-6 col-md-6">
+      <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Category</th>
+            </tr>
+          </thead>
+          <tbody id="get_category">
+          <?php
+            $query="SELECT * FROM categories WHERE 1 ";
+            $result = mysqli_query($conn, $query);
+            $i=0;
+            while($category_data= mysqli_fetch_array($result))
+            {
+          ?>
+        <tr>
+          <td><?php echo $category_data['cid']; ?></td>
+          <td> <?php echo $category_data['category_name']; ?></td>
+        
+        </tr>
+          <?php
+            $i++;
+            }
+          ?>
+          </tbody>
+      </table>
+    </div>
+  </div>
 </div>
   
 </body>

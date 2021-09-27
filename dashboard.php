@@ -61,7 +61,7 @@
 							echo $login_time;
 						?>
 					</p>
-				    <a href="editprofile.php" class="btn btn-warning" ><i class="fa fa-edit">&nbsp;</i>Edit Profile</a>
+				    <a href="editprofile.php" class="btn btn-success" ><i class="fa fa-edit">&nbsp;</i>Edit Profile</a>
 					
 				  </div>
 				</div>
@@ -77,16 +77,7 @@
 						<div class="col-sm-6">
 						<iframe src="https://free.timeanddate.com/clock/i7w2rqrg/n73/szw110/szh110/hoc222/hbw6/cf100/hnce1ead6/hcw2/hcd88/fan2/fas20/fdi70/mqc000/mqs3/mql13/mqw4/mqd94/mhc000/mhs3/mhl13/mhw4/mhd94/mmc000/mml5/mmw1/mmd94/hwm2/hhs2/hhb18/hms2/hml80/hmb18/hmr7/hscf09/hss1/hsl90/hsr5" frameborder="0" width="110" height="110"></iframe>
 						</div>
-						<div class="col-sm-6">
-							<div class="card">
-						      <div class="card-body">
-						        <h4 class="card-title">New Orders</h4>
-						        <p class="card-text">Here you can make invoices and create new orders</p>
-						        <a href="new_order.php" class="btn btn-warning">New Orders</a>
-								
-						      </div>
-						    </div>
-						</div>
+						
 					</div>
 				</div>
 			</div>
@@ -96,19 +87,29 @@
 	<p></p>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-4">
 				<?php 
 					if($operator == 'Admin'){
 						include_once("./templates/usercreate.php");
 					}
 				?>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-4">
 				<?php 
-					if($operator == 'Admin'){
+					if($operator == 'Admin' || $operator == 'Manager'){
 						include_once("./templates/ledger.php");
 					}
 				?>
+			</div>
+			<div class="col-sm-4">
+				<div class="card">
+					<div class="card-body">
+					<h4 class="card-title">New Orders</h4>
+					<p class="card-text">Here you can make invoices and create new orders</p>
+					<a href="new_order.php" class="btn btn-success">New Orders</a>
+					
+					</div>
+				</div>
 			</div>
 		</div>
 		
@@ -119,8 +120,8 @@
 						<div class="card-body">
 						<h4 class="card-title">Categories</h4>
 						<p class="card-text">Here you can manage your categories and you add new parent and sub categories</p>
-						<a href="./templates/category.php" class="btn btn-warning">Add</a>
-						<a href="manage_categories.php" class="btn btn-warning">Manage</a>
+						<a href="./templates/category.php" class="btn btn-success">Add</a>
+						<a href="manage_categories.php" class="btn btn-success">Manage</a>
 					</div>
 				</div>
 			</div>
@@ -129,8 +130,8 @@
 						<div class="card-body">
 						<h4 class="card-title">Brands</h4>
 						<p class="card-text">Here you can manage your brand and you add new brand</p>
-						<a href="./templates/brand.php" class="btn btn-warning">Add</a>
-						<a href="manage_brand.php" class="btn btn-warning">Manage</a>
+						<a href="./templates/brand.php" class="btn btn-success">Add</a>
+						<a href="manage_brand.php" class="btn btn-success">Manage</a>
 					</div>
 				</div>
 			</div>
@@ -139,8 +140,8 @@
 						<div class="card-body">
 						<h4 class="card-title">Products</h4>
 						<p class="card-text">Here you can manage your products and you add new products</p>
-						<a href="./templates/products.php" class="btn btn-warning">Add</a>
-						<a href="manage_product.php" class="btn btn-warning">Manage</a>
+						<a href="./templates/products.php" class="btn btn-success">Add</a>
+						<a href="manage_product.php" class="btn btn-success">Manage</a>
 					</div>
 				</div>
 			</div>

@@ -59,7 +59,7 @@
 					}
 				?>
 		    </tbody>
-		  </table>
+		</table>
 	</div>	
 	<script>
 		function checkdelete() {
