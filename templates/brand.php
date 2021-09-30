@@ -5,7 +5,9 @@
       if (isset($_POST['brandname']))
       {
         $brandname = $_POST['brandname'];
-        $query = "INSERT INTO brands (brand_name) VALUES ('$brandname')";
+        $brand_code = $_POST['brand_code'];
+        $brand_date = $_POST['brand_date'];
+        $query = "INSERT INTO brands (bid, brand_name, added_date) VALUES ('$brand_code', '$brandname','$brand_date')";
         $result = mysqli_query($conn, $query);
         if ($result === TRUE) {
           $wrng_pass = "<script> alert('Brand Added.')</script>";
@@ -67,11 +69,11 @@
             <form id="brand_form" method="POST">
                 <div class="fill_box">
                   <label>Code</label>
-                  <input type="text"  name="category_code" value="<?php echo rand(1000, 9999); ?>" readonly>
+                  <input type="text"  name="brand_code" value="<?php echo rand(1000, 9999); ?>" readonly>
                 </div>
                 <div class="fill_box">
-                  <label>Category Name</label>
-                  <input type="text" name="category_date" value="<?php echo date("Y-m-d"); ?>" readonly>
+                  <label>Date</label>
+                  <input type="text" name="brand_date" value="<?php echo date("Y-m-d"); ?>" readonly>
                 </div>
                 <div class="fill_box">
                   <label>Brand Name</label>
@@ -87,34 +89,34 @@
 <div class="row">
     <div class="col-lg-3"></div>
       <div class="col-lg-6 col-md-6">
-        <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Date</th>
-                <th>Category</th>
-              </tr>
-            </thead>
-            <tbody id="get_category">
-            <?php
-              $query="SELECT * FROM categories WHERE 1 ";
-              $result = mysqli_query($conn, $query);
-              $i=0;
-              while($category_data= mysqli_fetch_array($result))
-              {
-            ?>
-          <tr>
-            <td><?php echo $category_data['cid']; ?></td>
-            <td><?php echo $category_data['added_date']; ?></td>
-            <td> <?php echo $category_data['category_name']; ?></td>
-          
-          </tr>
-            <?php
-              $i++;
-              }
-            ?>
-            </tbody>
-        </table>
+      <table class="table table-hover table-bordered">
+		    <thead>
+		      <tr>
+		        <th>#</th>
+            <th>Date</th>
+		        <th>Brand</th>
+		      </tr>
+		    </thead>
+		    <tbody id="get_brand">
+				
+				<?php
+          $query="SELECT * FROM brands WHERE 1 ";
+          $result = mysqli_query($conn, $query);
+          $i=0;
+					while($brand_data= mysqli_fetch_array($result))
+                  {
+				?>
+			<tr>
+				<td><?php echo $brand_data['bid'];?></td>
+				<td><?php echo $brand_data['added_date'];?></td>
+				<td><?php echo $brand_data['brand_name'];?> </td>
+			</tr>
+				<?php
+					$i++;
+					}
+				?>
+		    </tbody>
+		</table>
       </div>
   </div>
 

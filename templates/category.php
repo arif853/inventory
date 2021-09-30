@@ -74,7 +74,7 @@
                 <input type="text"  name="category_code" value="<?php echo rand(1000, 9999); ?>" readonly>
               </div>
               <div class="fill_box">
-                <label>Category Name</label>
+                <label>Date</label>
                 <input type="text" name="category_date" value="<?php echo date("Y-m-d"); ?>" readonly>
               </div>
               <div class="fill_box">

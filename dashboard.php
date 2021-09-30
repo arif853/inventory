@@ -115,36 +115,17 @@
 		
 		<p></p>
 		<div class="row">
-			<div class="col-md-3">
+			<div class="col-lg-3">
 				<div class="card">
-						<div class="card-body">
-						<h4 class="card-title">Categories</h4>
-						<p class="card-text">Here you can manage your categories and you add new parent and sub categories</p>
-						<a href="./templates/category.php" class="btn btn-success">Add</a>
-						<a href="manage_categories.php" class="btn btn-success">Manage</a>
+					<div class="card-body">
+						<h4 class="card-title">Item Master</h4>
+						<p class="card-text">Here you can  add new Item, category, brand, model and manage them.</p>
+						<a href="item_master.php" class="btn btn-success">Add Item</a>
+						<!-- <a href="manage_categories.php" class="btn btn-success">Manage</a> -->
 					</div>
 				</div>
 			</div>
-			<div class="col-md-3">
-				<div class="card">
-						<div class="card-body">
-						<h4 class="card-title">Brands</h4>
-						<p class="card-text">Here you can manage your brand and you add new brand</p>
-						<a href="./templates/brand.php" class="btn btn-success">Add</a>
-						<a href="manage_brand.php" class="btn btn-success">Manage</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3">
-				<div class="card">
-						<div class="card-body">
-						<h4 class="card-title">Products</h4>
-						<p class="card-text">Here you can manage your products and you add new products</p>
-						<a href="./templates/products.php" class="btn btn-success">Add</a>
-						<a href="manage_product.php" class="btn btn-success">Manage</a>
-					</div>
-				</div>
-			</div>
+			
 			<div class="col-md-3">
 				<?php 
 					if($operator == 'Admin' || $operator == 'Manager'){
