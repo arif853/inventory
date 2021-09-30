@@ -27,22 +27,24 @@ a,a:hover{
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
 }
-#login_window{
+
+/* ======================================= */
+#mini_window{
     margin: 100px auto;
     width: 380px;
     height: 450px;
     background: rgba(179, 255, 198, 0.301);
 }
-#login_window h2{
+#mini_window h2{
     text-align: center;
     margin-left: 10px;
     font-size: 40px;
     font-weight: 700;
 }
-#login_window h4{
+#mini_window h4{
     text-align: center;
 }
-#login_window h4.wrng_pass{
+#mini_window h4.wrng_pass{
     text-align: center;
     font-size: 16px;
     font-weight: 700;
@@ -181,4 +183,23 @@ iframe #fc:hover #hov {
 .customer-reg .input_box.add-btn {
 	margin-left: 220px;
 	margin-top: 50px;
+}
+
+/* ================== fillbox CSS ================== */
+
+.category-body .fill_box{
+    display: inline-block;
+    margin-left: 65px;
+}
+.category-body .fill_box label{
+    display: block;
+}
+.category-body .fill_box input{
+    border: 1px solid rgb(65, 65, 65);
+    border-radius: 5px;
+}
+.category-body #add_btn{
+        display: block;
+        margin: 30px 395px;
+        padding: 10px 100px;
 }

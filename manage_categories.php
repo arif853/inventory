@@ -32,6 +32,7 @@
 		    <thead>
 		      <tr>
 		        <th>#</th>
+		        <th>Date</th>
 		        <th>Category</th>
 		        <th>Status</th>
 		        <th>Action</th>
@@ -47,6 +48,7 @@
 				?>
 			<tr>
 				<td><?php echo $category_data['cid']; ?></td>
+				<td><?php echo $category_data['added_date']; ?></td>
 				<td> <?php echo $category_data['category_name']; ?></td>
 				<td> <a href="#" class="btn btn-success btn-sm">Active</a></td>
 				<td> 

@@ -4,7 +4,10 @@
     if (isset($_POST['categoryname']) && !empty($_POST['categoryname']))
     {
       $c_name = $_POST['categoryname'];
-      $query2 = "INSERT INTO categories ( category_name) VALUES ('$c_name')";
+      $c_code = $_POST['category_code'];
+      $c_date = $_POST['category_date'];
+
+      $query2 = "INSERT INTO categories (cid, category_name, added_date) VALUES ('$c_code', '$c_name', '$c_date')";
       $result2 = mysqli_query($conn,$query2);
 
       if ($result2 === TRUE) {
@@ -52,8 +55,8 @@
 <br><br>
 <div class="container">
   <div class="row">
-    <div class="col-lg-3"></div>
-    <div class="col-lg-6">
+    <!-- <div class="col-lg-3"></div> -->
+    <div class="col-lg-12">
         <div id="form_category">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Add New Category</h5>
@@ -64,51 +67,59 @@
                   echo '<h5 class= "wrng_pass" >' .$wrng_pass. '</h5>' ;
               }
           ?>
-          <div class="modal-body">
+          <div class="category-body">
             <form id="category_form" method="POST">
-              <div class="form-group">
-                <label>Category Name</label>
-                <input type="text" class="form-control" name="categoryname" id="categoryname" placeholder="Enter Category Name">
-              
+              <div class="fill_box">
+                <label>Code</label>
+                <input type="text"  name="category_code" value="<?php echo rand(1000, 9999); ?>" readonly>
               </div>
-              <input type="submit" class="btn btn-success" value="Add">
+              <div class="fill_box">
+                <label>Category Name</label>
+                <input type="text" name="category_date" value="<?php echo date("Y-m-d"); ?>" readonly>
+              </div>
+              <div class="fill_box">
+                <label>Category Name</label>
+                <input type="text" name="categoryname" id="categoryname" placeholder="Enter Category Name">
+              </div>
+              <input type="submit" class="btn btn-success" id="add_btn" value="Add">
             </form>
           </div>
         </div>
     </div>
-    <div class="col-lg-3"></div>
   </div>
   <br><br><br>
   <div class="row">
-  <div class="col-lg-3"></div>
-    <div class="col-lg-6 col-md-6">
-      <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Category</th>
-            </tr>
-          </thead>
-          <tbody id="get_category">
-          <?php
-            $query="SELECT * FROM categories WHERE 1 ";
-            $result = mysqli_query($conn, $query);
-            $i=0;
-            while($category_data= mysqli_fetch_array($result))
-            {
-          ?>
-        <tr>
-          <td><?php echo $category_data['cid']; ?></td>
-          <td> <?php echo $category_data['category_name']; ?></td>
-        
-        </tr>
-          <?php
-            $i++;
-            }
-          ?>
-          </tbody>
-      </table>
-    </div>
+    <div class="col-lg-3"></div>
+      <div class="col-lg-6 col-md-6">
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Date</th>
+                <th>Category</th>
+              </tr>
+            </thead>
+            <tbody id="get_category">
+            <?php
+              $query="SELECT * FROM categories WHERE 1 ";
+              $result = mysqli_query($conn, $query);
+              $i=0;
+              while($category_data= mysqli_fetch_array($result))
+              {
+            ?>
+          <tr>
+            <td><?php echo $category_data['cid']; ?></td>
+            <td><?php echo $category_data['added_date']; ?></td>
+            <td> <?php echo $category_data['category_name']; ?></td>
+          
+          </tr>
+            <?php
+              $i++;
+              }
+            ?>
+            </tbody>
+        </table>
+      </div>
   </div>
 </div>
   

@@ -55,7 +55,7 @@ session_start();
         <img src="image/Inventory-Control.jpg" alt="bookwithgreen">
         </div>
         <div class="overlay">
-            <div id="login_window" class="login_window">
+            <div id="mini_window" class="login_window">
                 <h2>Welcome to</h2>
                 <h4> Inventory Management System</h4>
                <?php 
@@ -74,11 +74,11 @@ session_start();
                         <input type="password" name="password" id="" placeholder="Password">
                     </div>
                     <div class="submit">
-                        <input type="submit" value="Login">
+                        <input type="submit" class="btn btn-success" value="Login">
                     </div>
                 </form>
                 <div class="new_user">
-                    <a href="resetpassword.php">Forget Password? </a>
+                    <a href="resetpassword.php" class="btn btn-warning">Forget Password? </a>
                 </div>
         </div>
         

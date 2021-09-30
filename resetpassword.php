@@ -53,29 +53,35 @@
 	<?php //include_once("./templates/header.php"); ?>
 	<br/><br/>
   <div class="container">
-    <form  method="POST" class="text-center">
-          <h2 class=" mb-3 mt-3">Reset Your Password</h2>
-          <?php 
-                    if(isset($wrng_pass))
-                    {
-                        echo '<h4 class= "wrng_pass" style="Color: red" >' .$wrng_pass. '</h4>' ;
-                    }
-                ?>
-          <div class="form-group">
-              <h4>Username: </h4>
-              <input type="text" name="user_name" placeholder="Username" required>
+    <div class="overlay">
+      <div id="mini_window">
+          <form  method="POST" class="text-center">
+                <h2 class=" mb-3 mt-3">Reset Your Password</h2>
+                <?php 
+                          if(isset($wrng_pass))
+                          {
+                              echo '<h4 class= "wrng_pass" style="Color: red" >' .$wrng_pass. '</h4>' ;
+                          }
+                      ?>
+                <div class="fill_box" >
+                    <h4>Username: </h4>
+                    <input type="text" name="user_name" placeholder="Username" required>
+                </div>
+                <div class="fill_box">
+                <h4>New password: </h4>
+                    <input type="password" name="newpassword" placeholder="New Password" required>
+                </div>
+                <div class="fill_box">
+                    <input type="submit" name="reset" class="btn btn-primary " value="change password">
+                </div>
+          </form>
+          <div class="new_user">
+              <a href="login.php" class="btn btn-success">Login Here!</a>
           </div>
-          <div class="form-group">
-          <h4>New password: </h4>
-              <input type="password" name="newpassword" placeholder="New Password" required>
-          </div>
-          <div class="form-group">
-              <input type="submit" name="reset" class="btn btn-primary " value="change password">
-          </div>
-    </form>
-        <div class="new_user">
-            <a href="login.php" class="btn btn-success">Login Here!</a>
-        </div>
+      </div>
+    </div>
+
+   
 	</div>
 
   <script src="script.js"></script>
