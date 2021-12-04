@@ -46,25 +46,6 @@
           $wrng_pass = "Not Updated.";
         }
       }
-
-    // if(isset($_POST['reset'])){
-
-    //   $password = $_POST['newpassword'];
-    //   $hash = password_hash($password,PASSWORD_DEFAULT);
-    //   $c_hash = password_hash($password,PASSWORD_DEFAULT);
-
-    //   $setpass = "UPDATE users SET password ='$hash', confirm_password='$c_hash' WHERE username = '$user'";
-    //   $set_result= mysqli_query($conn, $setpass);
-
-    //   if($set_result){
-    //     $wrng_pass= " Password Updated.";
-    //   }
-    //   else {
-    //     $wrng_pass = "Password Not Updated.";
-    //   }
-    // } 
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -112,11 +93,7 @@
           <div class="form-group">
             <input type="submit" name="submit" class="btn btn-primary " value="Save User">
           </div> 
-          <!-- <div class="form-group">
-          <h4>New password: </h4>
-              <input type="password" name="newpassword">
-              <input type="submit" name="reset" class="btn btn-primary " value="change password">
-          </div> -->
+         
         </form>
 	</div>
 

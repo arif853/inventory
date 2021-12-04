@@ -64,7 +64,7 @@
 		        <td><?php echo $row["product_price"]; ?></td>
 				<td><?php echo $row["product_stock"]; ?></td>
 				<td><?php echo $row["added_date"]; ?></td>
-		        <td><a href="./templates/delete-process.php?pid=<?php echo $row["pid"]; ?>" class="btn btn-danger btn-sm">Delete</a></td>
+		        <td><a href="./templates/delete-process.php?pid=<?php echo $row["pid"]; ?>" onclick="return checkdelete()" class="btn btn-danger btn-sm">Delete</a></td>
 		        <td>
 		        	<a href="./templates/update_products.php?pid=<?php echo $row["pid"]; ?>" class="btn btn-info btn-sm">Update</a>
 		        </td>
@@ -77,6 +77,10 @@
 		</table>
 	</div>
 	
-	
+	<script>
+		function checkdelete() {
+			return confirm("Do you want to delete this item?");
+		}
+	</script>
 </body>
 </html>

@@ -101,32 +101,30 @@
 					}
 				?>
 			</div>
-			<div class="col-sm-4">
-				<div class="card">
-					<div class="card-body">
-					<h4 class="card-title">New Orders</h4>
-					<p class="card-text">Here you can make invoices and create new orders</p>
-					<a href="new_order.php" class="btn btn-success">New Orders</a>
-					
-					</div>
-				</div>
-			</div>
+			
 		</div>
 		
 		<p></p>
 		<div class="row">
-			<div class="col-lg-3">
+			<div class="col-lg-4">
 				<div class="card">
 					<div class="card-body">
 						<h4 class="card-title">Item Master</h4>
 						<p class="card-text">Here you can  add new Item, category, brand, model and manage them.</p>
 						<a href="item_master.php" class="btn btn-success">Add Item</a>
-						<!-- <a href="manage_categories.php" class="btn btn-success">Manage</a> -->
 					</div>
 				</div>
 			</div>
-			
-			<div class="col-md-3">
+			<div class="col-lg-4">
+				<div class="card">
+					<div class="card-body">
+						<h4 class="card-title">New Orders</h4>
+						<p class="card-text">Here you can make invoices and create new orders</p>
+						<a href="new_order.php" class="btn btn-success">New Orders</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4">
 				<?php 
 					if($operator == 'Admin' || $operator == 'Manager'){
 						include_once("templates/viewstock.php");

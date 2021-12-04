@@ -136,7 +136,14 @@
 					?>  
 		      <tr>
 		        <td><?php echo $i;?> </td>
-				<td><?php echo $row['customer_name'];?></td>
+					<?php
+					 	$cus_id = $row['customer_name'];
+						$cus_query = "SELECT * FROM customer where id = '$cus_id'";
+						$res_cus = mysqli_query($conn,$cus_query);
+						
+						$row_cus = mysqli_fetch_array($res_cus)
+					?>  
+				<td><?php echo $row_cus['name'];?></td>
 				<td><?php echo $row['sub_total'];?></td>
 				<td><?php echo $row['order_date'];?></td>
 		      </tr>

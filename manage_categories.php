@@ -12,6 +12,7 @@
 	<script src="js/jquery.min.js"></script>
 	<script src="js/popper.min.js" ></script>
     <script src="js/bootstrap.min.js" ></script>
+  <script src="../js/sweetalert2.all.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css" >
  	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
  	

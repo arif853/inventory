@@ -1,7 +1,7 @@
 <?php
 session_start();
-//include_once("./db_con/database_con.php");
-include_once("db_con/db.php");
+include_once("./db_con/database_con.php");
+include_once("./db_con/db.php");
 if (!isset($_SESSION["username"])) {
 	header("location: dashboard.php");
 }
@@ -43,8 +43,20 @@ if (!isset($_SESSION["username"])) {
 				  		<div class="form-group row">
 				  			<label class="col-sm-3 col-form-label" align="right">Customer Name*</label>
 				  			<div class="col-sm-6">
-				  				<input type="text" id="cust_name" name="cust_name" class="form-control form-control-sm" placeholder="Enter Customer Name" required/>
-				  			</div>
+				  				<!-- <input type="text" id="cust_name" name="cust_name" class="form-control form-control-sm" placeholder="Enter Customer Name" required/> -->
+								<select name="cust_name" id="cust_name" class="form-control form-control-sm" onmousedown="if(this.options.length>5){this.size=5;}" onchange="this.blur()"  onblur="this.size=0;" required>
+									<option value="#">Select Customer</option>
+									<?php
+										$query = "SELECT * FROM customer ";
+										$data = mysqli_query($conn, $query);
+										
+										while( $customer = mysqli_fetch_array($data))
+										{
+										echo "<option value=".$customer['id'].">".$customer['name']."</option>";
+										} 
+									?>
+								</select>
+							</div>
 				  		</div>
 
 
@@ -63,18 +75,18 @@ if (!isset($_SESSION["username"])) {
 		                              </tr>
 		                            </thead>
 		                            <tbody id="invoice_item">
-		<!-- <tr>
-		    <td><b id="number">1</b></td>
-		    <td>
-		        <select name="pid[]" class="form-control form-control-sm" required>
-		            <option>Washing Machine</option>
-		        </select>
-		    </td>
-		    <td><input name="tqty[]" readonly type="text" class="form-control form-control-sm"></td>   
-		    <td><input name="qty[]" type="text" class="form-control form-control-sm" required></td>
-		    <td><input name="price[]" type="text" class="form-control form-control-sm" readonly></td>
-		    <td>Rs.1540</td>
-		</tr> -->
+									<!-- <tr>
+										<td><b id="number">1</b></td>
+										<td>
+											<select name="pid[]" class="form-control form-control-sm" required>
+												<option>Washing Machine</option>
+											</select>
+										</td>
+										<td><input name="tqty[]" readonly type="text" class="form-control form-control-sm"></td>   
+										<td><input name="qty[]" type="text" class="form-control form-control-sm" required></td>
+										<td><input name="price[]" type="text" class="form-control form-control-sm" readonly></td>
+										<td>Rs.1540</td>
+									</tr> -->
 		                            </tbody>
 		                        </table> <!--Table Ends-->
 		                        <center style="padding:10px;">

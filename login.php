@@ -39,7 +39,7 @@ session_start();
 <html lang="en">
 <head>
    
-    <title>Login</title>
+    <title>Inventory System</title>
     <script src="js/jquery.min.js"></script>
 	<script src="js/popper.min.js" ></script>
     <script src="js/bootstrap.min.js"></script>
@@ -56,7 +56,7 @@ session_start();
         </div>
         <div class="overlay">
             <div id="mini_window" class="login_window">
-                <h2>Welcome to</h2>
+                <h2>Welcome To</h2>
                 <h4> Inventory Management System</h4>
                <?php 
                     if(isset($wrng_pass))

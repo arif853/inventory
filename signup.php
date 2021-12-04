@@ -49,7 +49,13 @@ session_start();
 <head>
    
     <title>SignUp</title>
+    <script src="js/jquery.min.js"></script>
+	<script src="js/popper.min.js" ></script>
+    <script src="js/bootstrap.min.js"></script>
+
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.min.css" >
+	<link rel="stylesheet" href="css/bootstrap.min.css" >
 
 </head>
 <body>
@@ -98,7 +104,7 @@ session_start();
                         </select>
                     </div>
                     <div class="submit">
-                        <input type="submit" value="Sign Up">
+                        <input type="submit" class="btn btn-success" value="Sign Up">
                     </div>
                 </form>
                 <div class="new_user">

@@ -44,7 +44,7 @@
 			</div>
             <div class="col-lg-4">
                 <div class="card">
-						<div class="card-body">
+					<div class="card-body">
 						<h4 class="card-title">Models</h4>
 						<p class="card-text">Here you can manage your Item models and you add new model</p>
 						<a href="#" class="btn btn-success">Add</a>

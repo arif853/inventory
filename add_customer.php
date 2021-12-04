@@ -1,3 +1,33 @@
+<?php
+session_start();
+
+    include("db_con/database_con.php");
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+        //somthing was posted
+        $c_id = $_POST['c_id'];
+        $name =$_POST['name'];
+        $address = $_POST['address'];
+		$phone = $_POST['phone'];
+        $phone2 = $_POST['phone2'];
+        $proprietor = $_POST['proprietor'];
+        $email = $_POST['email'];
+
+        //save to database
+        $query = "INSERT INTO customer(id, name, address, phone, alter_phn, email, p_name) 
+                    VALUES ('$c_id','$name','$address','$phone','$phone2','$email','$proprietor')";
+        //mysqli_query($conn, $query);
+        if ($conn->query($query) === TRUE) {
+            // header("Location: dashboard.php");
+            } 
+        else {
+        $wrng_pass = "User already Registered.";
+         }
+    }
+               
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +42,7 @@
 </head>
 <body>
 <?php include_once("./templates/header.php"); ?>
-<div class="container">
+    <div class="container">
         <div class="row">
             <div class="col-lg-12">
                  
@@ -27,7 +57,7 @@
                     <form  method="POST" >
                         <div class="input_box ">
                             <h4>Customer ID: </h4>
-                            <input name="upi" disabled  placeholder="<?php echo $customer_number; ?>" >
+                            <input name="c_id" readonly  value="<?php echo $customer_number; ?>" >
                         </div>
                         <div class="input_box ">
                             <h4>Business Name*: </h4>
@@ -59,6 +89,35 @@
                         </div>
                     </form>
                     
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="customer-reg">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>#ID</th>
+                            <th>Customer Name</th>
+                        </tr>
+
+                        <?php
+                            $c_query = "SELECT * FROM customer WHERE 1 ";
+                            $c_result = mysqli_query($conn, $c_query);
+                            $i=0;
+                            while($data= mysqli_fetch_array($c_result))
+                            {
+                        ?>
+                        <tr>
+                            <td><?php echo $data['id']; ?></td>
+                            <td><?php echo $data['name']; ?></td>
+                        </tr>
+
+                        <?php
+                            }
+                        ?>
+                    </table>
                 </div>
             </div>
         </div>
